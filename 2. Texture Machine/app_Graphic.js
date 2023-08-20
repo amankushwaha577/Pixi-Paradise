@@ -55,14 +55,14 @@ torus.beginFill(0xFFFDDD)
 .endFill();
 app.stage.addChild(torus);
 
-/* 5 : torus Graphic */
+/* 6 : star Graphic */
 const star = new Graphics();
 star.beginFill(0xADADAD)
 .drawStar(700, 570, 500, 80)
 .endFill();
 app.stage.addChild(star);
 
-/* 6 : Text Style*/
+/* 7 : Text Style*/
 const style = new PIXI.TextStyle({
     fontFamily: 'Montserrat',
     fontSize: 48,
