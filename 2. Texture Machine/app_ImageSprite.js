@@ -12,6 +12,7 @@ app.renderer.resize(window.innerWidth, window.innerHeight);
 app.renderer.view.style.position = 'absolute';
 document.body.appendChild(app.view);
 
+/* 1 : Container one */
 const container = new PIXI.Container();
 
 // const char2Sprite = PIXI.Sprite.from('./images/char2.png');
@@ -32,41 +33,41 @@ console.log(char3Sprite.x);
 console.log(char3Sprite.getGlobalPosition());
 console.log(container.children);
 
-
-// const particleContainer = new PIXI.ParticleContainer(1000, {
-//     position: true,
-//     rotation: true,
-//     vertices: true,
-//     tint: true,
-//     uvs: true
-// });
+/* 2 : Container two */
+const particleContainer = new PIXI.ParticleContainer(1000, {
+    position: true,
+    rotation: true,
+    vertices: true,
+    tint: true,
+    uvs: true
+});
 
 
 const loader = PIXI.Loader.shared;
 
-// loader.add(['./images/char4.png', './images/chsdfsdf.png'])
-// //.add('char5Texture', './images/char5.png')
-// .load(setup);
+loader.add(['./images/char4.png', './images/chsdfsdf.png'])
+//.add('char5Texture', './images/char5.png')
+.load(setup);
 
-// function setup(loader, resources) {
-//     const char4Sprite = new PIXI.Sprite(
-//         resources['./images/char4.png'].texture
-//     );
-//     char4Sprite.y = 400;
-//     app.stage.addChild(char4Sprite);
-// }
+function setup(loader, resources) {
+    const char4Sprite = new PIXI.Sprite(
+        resources['./images/char4.png'].texture
+    );
+    char4Sprite.y = 400;
+    app.stage.addChild(char4Sprite);
+}
 
-// loader.onLoad.add(function() {
-//     console.log('on load');
-// });
+loader.onLoad.add(function() {
+    console.log('on load');
+});
 
-// loader.onError.add(function() {
-//     console.log('on error');
-// });
+loader.onError.add(function() {
+    console.log('on error');
+});
 
-// loader.onProgress.add(function() {
-//     console.log('on progress');
-// });
+loader.onProgress.add(function() {
+    console.log('on progress');
+});
 
 
 // loader.add('tileset', './images/tileset.png')
