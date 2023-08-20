@@ -62,3 +62,28 @@ star.beginFill(0xADADAD)
 .endFill();
 app.stage.addChild(star);
 
+/* 6 : Text Style*/
+const style = new PIXI.TextStyle({
+    fontFamily: 'Montserrat',
+    fontSize: 48,
+    fill: 'deepskyblue',
+    stroke: '#ffffff',
+    strokeThickness: 4,
+    dropShadow: true,
+    dropShadowDistance: 10,
+    dropShadowAngle: Math.PI / 2,
+    dropShadowBlur: 4,
+    dropShadowColor: '#000000'
+});
+
+const myText = new PIXI.Text('Hello World!', style);
+
+app.stage.addChild(myText);
+
+myText.text = 'Aman Kushwaha';
+
+myText.style.wordWrap = true;
+myText.style.wordWrapWidth = 100;
+myText.style.align = 'center';
+
+
