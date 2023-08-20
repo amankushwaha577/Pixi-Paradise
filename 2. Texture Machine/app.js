@@ -8,50 +8,45 @@ const app = new Application({
 });
 
 app.renderer.backgroundColor = 0x23395D;
-
 app.renderer.resize(window.innerWidth, window.innerHeight);
-
 app.renderer.view.style.position = 'absolute';
-
 document.body.appendChild(app.view);
 
+/* 1 : Rectangle Graphic */
+const Graphics = PIXI.Graphics;
+const rectangle = new Graphics();
+rectangle.beginFill(0xFF99FF)
+.lineStyle(10, 0xFFEA00, 0.7)
+.drawRect(100, 500, 50, 150)
+.endFill();
+app.stage.addChild(rectangle);
 
-// const Graphics = PIXI.Graphics;
+/* 2 : Poly Graphic */
+const poly = new Graphics();
+poly.beginFill(0xFF66FF)
+.lineStyle(5, 0xFFEA00, 1)
+.drawPolygon([
+    600, 50,
+    800, 150,
+    900, 300,
+    400, 400
+])
+.endFill();
+app.stage.addChild(poly);
 
-// const rectangle = new Graphics();
-// rectangle.beginFill(0xAA33BB)
-// .lineStyle(4, 0xFFEA00, 1)
-// .drawRect(200, 200, 100, 120)
-// .endFill();
+/* 3 : Circle Graphic */
+const circle = new Graphics();
+circle.beginFill(0x22AACC)
+.drawCircle(300, 570, 80)
+.endFill();
+app.stage.addChild(circle);
 
-// app.stage.addChild(rectangle);
-
-// const poly = new Graphics();
-// poly.beginFill(0xFF66FF)
-// .lineStyle(5, 0xFFEA00, 1)
-// .drawPolygon([
-//     600, 50,
-//     800, 150,
-//     900, 300,
-//     400, 400
-// ])
-// .endFill();
-
-// app.stage.addChild(poly);
-
-// const circle = new Graphics();
-// circle.beginFill(0x22AACC)
-// .drawCircle(440, 200, 80)
-// .endFill();
-
-// app.stage.addChild(circle);
-
-// const line = new Graphics();
-// line.lineStyle(5, 0xFFEA00, 1)
-// .moveTo(1500, 100)
-// .lineTo(1500, 800);
-
-// app.stage.addChild(line);
+/* 4 : Circle Graphic */
+const line = new Graphics();
+line.lineStyle(5, 0xFFEA00, 1)
+.moveTo(1500, 100)
+.lineTo(1500, 800);
+app.stage.addChild(line);
 
 // const torus = new Graphics();
 // torus.beginFill(0xFFFDDD)
