@@ -13,6 +13,7 @@ app.renderer.view.style.position = 'absolute';
 document.body.appendChild(app.view);
 
 
+/* 1: Moving Picture */
 app.ticker.add(delta => loop(delta));
 
 function loop(delta) {
@@ -20,26 +21,28 @@ function loop(delta) {
     char1Sprite.rotation += 0.01;
 }
 
-const char1Texture = PIXI.Texture.from('./images/char1.png');
-const char1Sprite = new PIXI.Sprite(char1Texture);
+// // const char1Texture = PIXI.Texture.from('./images/char1.png');
+// // const char1Sprite = new PIXI.Sprite(char1Texture);
 
 // const char1Sprite = PIXI.Sprite.from('./images/char1.png');
 // app.stage.addChild(char1Sprite);
 
+const char1Sprite = PIXI.Sprite.from('https://pixijs.io/examples/examples/assets/eggHead.png');
+app.stage.addChild(char1Sprite);
 
-char1Sprite.width = 500;
-char1Sprite.height = 500;
+char1Sprite.width = 50;
+char1Sprite.height = 50;
 
-char1Sprite.scale.x = 1.5;
-char1Sprite.scale.y = 2;
-char1Sprite.scale.set(2, 2);
+// char1Sprite.scale.x = 1.5;
+// char1Sprite.scale.y = 2;
+char1Sprite.scale.set(3, 3);
 
-char1Sprite.x = 200;
-char1Sprite.y = 400;
-char1Sprite.position.set(800, 400);
+// char1Sprite.x = 200;
+// char1Sprite.y = 400;
+char1Sprite.position.set(100, 50);
 
-char1Sprite.anchor.x = 0.5;
-char1Sprite.anchor.y = 0.5;
+// char1Sprite.anchor.x = 0.5;
+// char1Sprite.anchor.y = 0.5;
 char1Sprite.anchor.set(0.5, 0.5);
 
 
