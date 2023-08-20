@@ -22,6 +22,8 @@ function onAssetsLoaded() {
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/skully.png'),
     ];
 
+    const a =PIXI.Sprite.from('./images/eggHead.png');
+
     // Build the reels
     const reels = [];
     const reelContainer = new PIXI.Container();
