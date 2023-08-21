@@ -20,7 +20,7 @@ const SYMBOL_SIZE = 150;
 
 /* Step 4: onAssetsLoaded build the game */
 function onAssetsLoaded() {
-    // Step A: Create different slot symbols.
+    /* Step A: Create different slot symbols. */
     const slotTextures = [
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/eggHead.png'),
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/flowerTop.png'),
@@ -28,24 +28,20 @@ function onAssetsLoaded() {
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/skully.png'),
     ];
 
-    // Build the reels
-    const reels = [];
+    /* Step B: Build the reels */
+    const reels = [];                                   // All 5 Reels will be store in this array.
     const reelContainer = new PIXI.Container();
     for (let i = 0; i < 5; i++) {
-        const rc = new PIXI.Container();
-        rc.x = i * REEL_WIDTH;
-        reelContainer.addChild(rc);
+        const rc = new PIXI.Container();                // One single reel will contain 4 symbols.
+        rc.x = i * REEL_WIDTH;                          // Difference between reels is i * REEL_WIDTH.
+        reelContainer.addChild(rc);                     // Add all reels one by one to reelContainer.
 
         const reel = {
             container: rc,
             symbols: [],
             position: 0,
             previousPosition: 0,
-            blur: new PIXI.filters.BlurFilter(),
         };
-        reel.blur.blurX = 0;
-        reel.blur.blurY = 0;
-        rc.filters = [reel.blur];
 
         // Build the symbols
         for (let j = 0; j < 4; j++) {
@@ -136,9 +132,7 @@ function onAssetsLoaded() {
         // Update the slots.
         for (let i = 0; i < reels.length; i++) {
             const r = reels[i];
-            // Update blur filter y amount based on speed.
-            // This would be better if calculated with time in mind also. Now blur depends on frame rate.
-            r.blur.blurY = (r.position - r.previousPosition) * 8;
+
             r.previousPosition = r.position;
 
             // Update symbol positions on reel.
