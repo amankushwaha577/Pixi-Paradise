@@ -1,28 +1,32 @@
 
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
+/* Step 1: Crate Pixi JS Application */
+const app = new PIXI.Application({ backgroundColor: 0x9910BB });
+
+/* Step 2: Adding Application's View to DOM */
 document.body.appendChild(app.view);
 
+/* Step 3: app.loader is used to load the resources locally in device. */
 app.loader
     .add('https://pixijs.io/examples/examples/assets/eggHead.png')
     .add('https://pixijs.io/examples/examples/assets/flowerTop.png')
     .add('https://pixijs.io/examples/examples/assets/helmlok.png')
     .add('https://pixijs.io/examples/examples/assets/skully.png')
+
+    /* Step 3B: it will call the onAssetsLoaded() function while loading the assets. */
     .load(onAssetsLoaded);
 
 const REEL_WIDTH = 160;
 const SYMBOL_SIZE = 150;
 
-// onAssetsLoaded handler builds the example.
+/* Step 4: onAssetsLoaded build the game */
 function onAssetsLoaded() {
-    // Create different slot symbols.
+    // Step A: Create different slot symbols.
     const slotTextures = [
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/eggHead.png'),
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/flowerTop.png'),
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/helmlok.png'),
         PIXI.Texture.from('https://pixijs.io/examples/examples/assets/skully.png'),
     ];
-
-    const a =PIXI.Sprite.from('./images/eggHead.png');
 
     // Build the reels
     const reels = [];
@@ -91,7 +95,7 @@ function onAssetsLoaded() {
     bottom.addChild(playText);
 
     // Add header text
-    const headerText = new PIXI.Text('Slot Berry', style);
+    const headerText = new PIXI.Text('SLOT BERRY', style);
     headerText.x = Math.round((top.width - headerText.width) / 2);
     headerText.y = Math.round((margin - headerText.height) / 2);
     top.addChild(headerText);
@@ -129,7 +133,7 @@ function onAssetsLoaded() {
 
     // Listen for animate update.
     app.ticker.add((delta) => {
-    // Update the slots.
+        // Update the slots.
         for (let i = 0; i < reels.length; i++) {
             const r = reels[i];
             // Update blur filter y amount based on speed.
@@ -199,7 +203,6 @@ function lerp(a1, a2, t) {
 }
 
 // Backout function from tweenjs.
-// https://github.com/CreateJS/TweenJS/blob/master/src/tweenjs/Ease.js
 function backout(amount) {
     return (t) => (--t * t * ((amount + 1) * t + amount) + 1);
 }
