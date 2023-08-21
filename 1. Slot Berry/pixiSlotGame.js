@@ -54,15 +54,20 @@ function onAssetsLoaded() {
         }
         reels.push(reel);                               // All reels will be pushed to reels Array.
     }
-    app.stage.addChild(reelContainer);
 
-    // Build top & bottom covers and position reelContainer
+    app.stage.addChild(reelContainer);                  // Now add the container at stage.
+
+
+
+    /* Step C: Build top & bottom covers and position reelContainer */
     const margin = (app.screen.height - SYMBOL_HEIGHT * 3) / 2;
     reelContainer.y = margin;
     reelContainer.x = Math.round(app.screen.width - REEL_WIDTH * 5);
+
     const top = new PIXI.Graphics();
     top.beginFill(0, 1);
-    top.drawRect(0, 0, app.screen.width, margin);
+    top.drawRect(0, 0, app.screen.width, margin);       // (X,Y,Width,Height)
+
     const bottom = new PIXI.Graphics();
     bottom.beginFill(0, 1);
     bottom.drawRect(0, SYMBOL_HEIGHT * 3 + margin, app.screen.width, margin);
