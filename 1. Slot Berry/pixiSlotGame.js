@@ -46,8 +46,8 @@ function onAssetsLoaded() {
         // Build the symbols
         for (let j = 0; j < 4; j++) {                   // Every reel will have 4 symbols.
             const symbol = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);   // Symbols will be generated randomly[0-3]
-            symbol.y = j * SYMBOL_HEIGHT;                 // Scale the symbol to fit symbol area.
-            symbol.scale.x = symbol.scale.y = Math.min(SYMBOL_HEIGHT / symbol.width, SYMBOL_HEIGHT / symbol.height);
+            symbol.y = j * SYMBOL_HEIGHT;               
+            symbol.scale.x = symbol.scale.y = Math.min(SYMBOL_HEIGHT / symbol.width, SYMBOL_HEIGHT / symbol.height);   // Scale the symbol to fit symbol area.
             symbol.x = Math.round((SYMBOL_HEIGHT - symbol.width) / 2);
             reel.symbols.push(symbol);
             rc.addChild(symbol);
