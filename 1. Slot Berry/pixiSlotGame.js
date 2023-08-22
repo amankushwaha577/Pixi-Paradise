@@ -72,7 +72,7 @@ function onAssetsLoaded() {
     bottom.beginFill(0, 1);
     bottom.drawRect(0, SYMBOL_HEIGHT * 3 + margin, app.screen.width, margin);
 
-    // Add play text
+    /* Step D: Add play text */
     const style = new PIXI.TextStyle({
         fontFamily: 'Arial',
         fontSize: 36,
@@ -103,7 +103,7 @@ function onAssetsLoaded() {
     app.stage.addChild(top);
     app.stage.addChild(bottom);
 
-    // Set the interactivity.
+    /* Step E: Set the interactivity */
     bottom.interactive = true;
     bottom.buttonMode = true;
     bottom.addListener('pointerdown', () => {
@@ -112,7 +112,7 @@ function onAssetsLoaded() {
 
     let running = false;
 
-    // Function to start playing.
+    /* Step F: Function to start playing. */
     function startPlay() {
         if (running) return;
         running = true;
